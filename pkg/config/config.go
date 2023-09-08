@@ -6,7 +6,7 @@ import (
 )
 
 type Config struct {
-	LogPath            string `env:"LOGPATH"`
+	LogPath            string `env:"LOG_PATH"`
 	EnablePolling      bool   `env:"ENABLE_POLLING"`
 	PollingInterval    string `env:"POLLING_INTERVAL"`
 	KafkaTopic         string `env:"KAFKA_TOPIC"`
@@ -18,10 +18,9 @@ type Config struct {
 }
 
 func LoadConfig() (*Config, error) {
-
 	// Read the environment variables
 	config := Config{
-		LogPath:            os.Getenv("LOGPATH"),
+		LogPath:            os.Getenv("LOG_PATH"),
 		EnablePolling:      os.Getenv("ENABLE_POLLING") == "true",
 		PollingInterval:    os.Getenv("POLLING_INTERVAL"),
 		KafkaTopic:         os.Getenv("KAFKA_TOPIC"),

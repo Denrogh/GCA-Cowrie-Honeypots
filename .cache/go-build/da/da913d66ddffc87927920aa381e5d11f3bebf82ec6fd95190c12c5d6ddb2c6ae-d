@@ -1,6 +1,0 @@
-./client.go
-./device.go
-./extracted.go
-./pcap.go
-./request.go
-./session.go

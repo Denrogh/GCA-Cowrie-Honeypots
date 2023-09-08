@@ -1,7 +1,6 @@
 # Cowrie Honeypot Kafka Ingestor (Cowrie-Honeypot-Ingest)
 
-
-Cowrie-Honeypot-Ingest is an OpenSearch ingestor for Cowrie Honeypots. It allows you to read sessions through logs transfered by hpfeeds, send them to Kafka, and then consume and ingest them into OpenSearch after enrichment.
+Cowrie-Honeypot-Ingest is an OpenSearch ingestor for Cowrie Honeypots. It allows you to read sessions through logs transferred by `hpfeeds`, send them to Kafka, and then consume and ingest them into OpenSearch after enrichment.
 
 ## Data Pipeline
 
@@ -27,8 +26,6 @@ Please note that the data pipeline involves the additional step of consuming dat
 
 4. The Cowrie-Honeypot-Ingest program will start loading sessions, sending them to Kafka, consuming them in Logstash, and finally indexing them in OpenSearch.
 
-
-
 ## References
 
 For more information about OpenSearch, Logstash, Kafka, and other related technologies, please refer to the following resources:
@@ -42,7 +39,6 @@ For more information about OpenSearch, Logstash, Kafka, and other related techno
 The following guide provides an overview of the configuration variables available in the `config.env` file(rename configBackup.env to config.env). These variables allow you to customize the behavior of the application according to your specific requirements.
 
 **Note:** Please make sure to follow the instructions carefully and set the appropriate values for each variable.
-
 
 1. `ENABLE_POLLING`:
    - Description: This variable determines whether polling for new sessions should be enabled or disabled.
