@@ -1,0 +1,14 @@
+FROM golang:latest
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+RUN go mod download
+RUN go mod download github.com/Shopify/toxiproxy/v2
+COPY . .
+RUN go build -o main ./cmd/kafka-producer
+RUN cat config.env
+CMD ["./main"]
+
+
+
