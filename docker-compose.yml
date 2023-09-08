@@ -10,7 +10,7 @@ services:
       - logstash
     volumes:
       - ./config.env:/usr/share/config/config.env
-      - /root/cowriehoneypot/cowrie/cmd/kafka-producer/test.json:/app/test.json
+      - ./cmd/kafka-producer/test.json:/app/test.json
     networks:
       - my-network
     restart: on-failure:10

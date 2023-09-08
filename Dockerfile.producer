@@ -1,9 +1,15 @@
-FROM golang:latest
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
-RUN go mod download github.com/Shopify/toxiproxy/v2
-COPY . .
-RUN go build -o main ./cmd/kafka-producer
-RUN cat config.env
-CMD ["./main"]
+FROM golang:1.20.5-alpine3.18 AS builder
+
+RUN apk add git make
+
+COPY . /go/src/github.com/Denrogh/GCA-Cowrie-Honeypots/
+
+WORKDIR /go/src/github.com/Denrogh/GCA-Cowrie-Honeypots/
+
+RUN make
+
+FROM scratch
+
+COPY --from=builder /go/src/github.com/Denrogh/GCA-Cowrie-Honeypots/bin/kafka-producer /kafka-producer
+
+ENTRYPOINT [ "/kafka-producer" ]
